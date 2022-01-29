@@ -41,6 +41,12 @@ public class Producer {
              */
             channel.queueDeclare("queue1",false,false,false,null);
             String message = "hello rabbitmq";
+            /*
+             * @param 交换机名称，不存在没有交换机的队列，会有默认交换机
+             * @param 队列名称
+             * @param 消息状态控制，是否持久化
+             * @param 消息内容
+             */
             channel.basicPublish("","queue1",null,message.getBytes());
             System.out.println("Successfully sent message: " + message);
         } catch (Exception e) {
