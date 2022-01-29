@@ -42,6 +42,7 @@ public class Producer {
             channel.queueDeclare("queue1",false,false,false,null);
             String message = "hello rabbitmq";
             channel.basicPublish("","queue1",null,message.getBytes());
+            System.out.println("Successfully sent message: " + message);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
